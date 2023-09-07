@@ -10,7 +10,7 @@ This repository includes open-source codes, detailed experimental results and fu
 
 ## Overview
 
-<p align='center'><img src="image/overview.png" width=30% height=30% /></p>
+<p align='center'><img src="image/overview.png" width=90% height=90% /></p>
 
 The figure above summarizes our algorithm comparisons framework, *Spectral Adversarial MixUp*.
 - First, our method computes [DoDiSS map](https://github.com/DIAL-RPI/Spectral-Adversarial-Data-Augmentation/tree/main/AAAIcodeSubmissoin__model_sensitivity_map). Thie algorithm is a variant of our AAAI-23 paper [*When Neural Networks Fail to Generalize? A Model Sensitivity Perspective*](https://arxiv.org/abs/2212.00850).
