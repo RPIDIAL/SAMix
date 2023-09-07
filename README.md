@@ -3,9 +3,7 @@
 [![LICENSE](https://img.shields.io/badge/license-NPL%20(The%20996%20Prohibited%20License)-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
-This repository includes open-source codes, detailed experimental results and full references of our MICCAI 2023 work 
-
-[*Spectral Adversarial MixUp for Few-Shot Unsupervised Domain Adaptation*](https://arxiv.org/abs/2309.01207).
+This repository includes open-source codes, detailed experimental results and full references of our __MICCAI 2023__ paper [*Spectral Adversarial MixUp for Few-Shot Unsupervised Domain Adaptation*](https://arxiv.org/abs/2309.01207).
 
 
 ## Overview
@@ -13,8 +11,8 @@ This repository includes open-source codes, detailed experimental results and fu
 <p align='center'><img src="image/overview.png" width=90% height=90% /></p>
 
 The figure above summarizes our algorithm comparisons framework, *Spectral Adversarial MixUp*.
-- First, our method computes [DoDiSS map](https://github.com/DIAL-RPI/Spectral-Adversarial-Data-Augmentation/tree/main/AAAIcodeSubmissoin__model_sensitivity_map). Thie algorithm is a variant of our AAAI-23 paper [*When Neural Networks Fail to Generalize? A Model Sensitivity Perspective*](https://arxiv.org/abs/2212.00850).
-- Then, we run [SAMix](https://github.com/DIAL-RPI/Spectral-Adversarial-Data-Augmentation/tree/main/AAAIcodeSubmissoin__SADA) to generate the augmented data and train the model with the JS-div regularization.
+- Our method first computes [DoDiSS map](https://github.com/DIAL-RPI/Spectral-Adversarial-Data-Augmentation/tree/main/AAAIcodeSubmissoin__model_sensitivity_map), which is a variant of our [*AAAI-23 paper*](https://ojs.aaai.org/index.php/AAAI/article/view/26328).
+- Then, we run [SAMix](https://github.com/DIAL-RPI/Spectral-Adversarial-Data-Augmentation/tree/main/AAAIcodeSubmissoin__SADA) to generate the augmented data and train the model with the ERM loss, normal UDA loss and the Jenssen-Shannon divergence regularization.
 
 
 ## Prerequisites
@@ -29,9 +27,9 @@ The figure above summarizes our algorithm comparisons framework, *Spectral Adver
 
 - (Not necessary) Install [Anaconda3](https://www.anaconda.com/products/distribution)
 - Install [CUDA 11.0+](https://developer.nvidia.com/cuda-11.0-download-archive)
-- Install [PyTorch 1.8.1+](http://pytorch.org/)
+- Install [PyTorch 1.12.1+](http://pytorch.org/)
 
-Noted that our code is tested based on [PyTorch 1.8.1](http://pytorch.org/)
+Noted that our code is tested based on [PyTorch 1.12.1](http://pytorch.org/)
 
 ### Dataset & Preparation
 
@@ -59,7 +57,7 @@ Measure the DoDiSS map of an ERM model by
 python ./AAAIcodeSubmissoin__model_sensitivity_map/model_sensitivity_map.py
 ```
 
-### Train model with Spectral Adversarial Data Augmentation (SADA)
+### Train model with Spectral Adversarial Data Mixup (SAMix)
 
 Train and evaluate the models with SADA by
 
@@ -67,7 +65,7 @@ Train and evaluate the models with SADA by
 python ./AAAIcodeSubmissoin__SADA/train_SADA.py
 ```
 
-The key __SADA data augmentation module__ is in 
+The key __SAMix data augmentation module__ is in 
 
 ```
 ./AAAIcodeSubmissoin__SADA/sada.py
